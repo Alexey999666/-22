@@ -37,7 +37,6 @@ public partial class EditionsCityContext : DbContext
 
             entity.ToTable("Edition");
 
-            entity.Property(e => e.Photo).HasColumnType("image");
             entity.Property(e => e.Price).HasColumnType("decimal(18, 4)");
             entity.Property(e => e.TitleEdition).HasMaxLength(255);
             entity.Property(e => e.Type).HasMaxLength(255);

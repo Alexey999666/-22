@@ -20,25 +20,29 @@
                             <ColumnDefinition Width="120"/>
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Image Width="150" Height="150" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="10" >
+                        <Image Width="150" Height="150" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Stretch="Uniform" HorizontalAlignment="Center" Margin="10" >
                             <Image.Source>
-                                <Binding Path="PhotoFull">
+                                <Binding Path="IndexNavigation.PhotoFull">
                                     <Binding.TargetNullValue>
                                         <ImageSource>image/Пустой.jpg</ImageSource>
                                     </Binding.TargetNullValue>
                                 </Binding>
                             </Image.Source>
                         </Image>
-                        <TextBlock Text="{Binding SubscriptionDate, StringFormat={}Дата подписки:{0^d}}" Grid.Row="1" Grid.Column="2" TextAlignment="Left" />
+                        
+                        <TextBlock Text="{Binding SubscriptionDate, StringFormat={}Дата подписки:{0:d}}" Grid.Row="1" Grid.Column="1" TextAlignment="Left" />
+                        <TextBlock Text="{Binding NumberMonths, StringFormat={}Количество месяцев:{0:d}}" Grid.Row="1" Grid.Column="2" TextAlignment="Left" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <!--<Button Click="Button_Click" />-->
     </Grid>
 </Window>

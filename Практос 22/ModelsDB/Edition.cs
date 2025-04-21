@@ -15,7 +15,7 @@ public partial class Edition
 
     public decimal Price { get; set; }
 
-    public byte[]? Photo { get; set; }
+    public string? Photo { get; set; }
 
     public virtual ICollection<Subscription> Subscriptions { get; set; } = new List<Subscription>();
 }
