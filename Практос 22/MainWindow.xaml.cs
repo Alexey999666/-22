@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Практос_22.ModelsDB;
 
 namespace Практос_22
 {
@@ -83,6 +85,20 @@ namespace Практос_22
         }
         void LoadDBInListView()
         {
+            using(EditionsCityContext _db =  new EditionsCityContext())
+            {
+                int selectedIndex = listView.SelectedIndex;
+                _db.Editions.Load();
+                _db.Organizations.Load();
+                listView.ItemsSource = _db.Subscriptions.ToList();
+                if(selectedIndex != -1)
+                {
+                    if (selectedIndex == listView.Items.Count) selectedIndex--;
+                    listView.SelectedIndex = selectedIndex;
+                    listView.ScrollIntoView(listView.SelectedItem);
+                }
+                listView.Focus();
+            }
 
         }
 
