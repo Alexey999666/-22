@@ -1,0 +1,30 @@
+﻿<Window x:Class="Практос_22.Entry"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Практос_22"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="400" Width="400" FontSize="20" ResizeMode="CanMinimize" SizeToContent="Height" WindowStartupLocation="CenterScreen" Activated="Window_Activated">
+    <Grid>
+        <StackPanel x:Name="SPenel">
+            <Label Content="Пользователь" />
+            <TextBox x:Name="tbLogin" />
+            <Label Content="Пароль" />
+            <PasswordBox x:Name="tbPas" PasswordChar="*" />
+            <Grid x:Name="grid" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="txtCaprcha" Background="Gray" FontSize="28" Grid.Row="0" TextAlignment="Center"/>
+                <Line x:Name="line" Grid.Row="0" Stroke="Black"/>
+                <Line x:Name="line1" Grid.Row="0" Stroke="Black"/>
+                <TextBox x:Name="tbCaptcha" Grid.Row="1"/>
+            </Grid>
+            <Button Content="Войти" IsDefault="True" Click="btnEnter_Click"/>
+            <Button Content="Отмена" IsCancel="True" Click="btnEsc_Click"/>
+            <Button Content="Войти как гость" Click="btnGuest_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
