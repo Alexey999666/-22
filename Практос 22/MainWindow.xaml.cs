@@ -111,5 +111,74 @@ namespace Практос_22
 
 
         }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            if (listView.SelectedItem != null)
+            {
+                Flags.FlagEdit = true;
+                Data.subscription = (Subscription)listView.SelectedItem;
+                TheForm f = new TheForm();
+                f.Owner = this;
+                f.ShowDialog();
+                LoadDBInListView();
+            }
+        }
+
+        private void btnView_Click(object sender, RoutedEventArgs e)
+        {
+            if (listView.SelectedItem != null)
+            {
+                Flags.FlagView = true;
+                Data.subscription = (Subscription)listView.SelectedItem;
+                TheForm f = new TheForm();
+                f.Owner = this;
+                f.ShowDialog();
+                LoadDBInListView();
+            }
+        }
+
+        private void btnClean_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Flags.FlagADD = true;
+            Data.subscription = null;
+            TheForm f = new TheForm();
+            f.Owner = this;
+            f.ShowDialog();
+            LoadDBInListView();
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Удалить запись?", "Удаление записи", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Subscription row = (Subscription)listView.SelectedItem;
+                  
+                    if (row != null)
+                    {
+                        using (EditionsCityContext _db = new EditionsCityContext())
+                        {
+                            _db.Subscriptions.Remove(row);
+                            _db.SaveChanges();
+                        }
+                        LoadDBInListView();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Ошибка заполнения");
+                }
+
+            }
+            else listView.Focus();
+        }
     }
 }

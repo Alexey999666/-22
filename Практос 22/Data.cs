@@ -16,5 +16,12 @@ namespace Практос_22
         public static string UserPatronymic;
         public static string Right;
     }
+    public static class Flags
+    {
+        public static bool FlagADD { get; set; } = false;
+        public static bool FlagEdit { get; set; } = false;
+        public static bool FlagView { get; set;} = false;
+
+    }
 
 }

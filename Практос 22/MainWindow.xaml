@@ -10,7 +10,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="27*"/>
             <RowDefinition Height="366*"/>
-            <RowDefinition Height="41*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="70*"/>
         </Grid.RowDefinitions>
         
         <ListView x:Name="listView" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Visible">
@@ -39,19 +40,27 @@
                         </Image>
                         <TextBlock Text="{Binding IndexNavigation.PageCount, StringFormat={} Количество страниц: {0:n}}" Grid.Row="0" Grid.Column="3" TextAlignment="Left"/>
                         <TextBlock Text="{Binding IndexNavigation.TitleEdition }" Grid.Row="0" Grid.Column="1" TextAlignment="Left"/>
-                        <TextBlock Text="{Binding CodeNavigation.TitleOrganization}" Grid.Row="0" Grid.Column="2" TextAlignment="Left" />
+                        <TextBlock Text="{Binding CodeNavigation.TitleOrganization}" Grid.Row="0" Grid.Column="2" TextAlignment="Justify" />
                         <TextBlock Text="{Binding SubscriptionDate, StringFormat={}Дата подписки: {0:d}}" Grid.Row="1" Grid.Column="1" TextAlignment="Left" />
-                        <TextBlock Text="{Binding NumberMonths, StringFormat={} Количество месяцев: {0:d}}" Grid.Row="1" Grid.Column="2" TextAlignment="Left" />
-                        <TextBlock Text="{Binding Discount, StringFormat={}Скидка: {0:n}}" Grid.Row="2" Grid.Column="2" TextAlignment="Left" />
+                        <TextBlock Text="{Binding NumberMonths, StringFormat={} Количество месяцев: {0:d}}" Grid.Row="1" Grid.Column="3" TextAlignment="Left" />
+                        <TextBlock Text="{Binding Discount, StringFormat={}Скидка: {0:n}}" Grid.Row="2" Grid.Column="3" TextAlignment="Left" />
                         <TextBlock Text="{Binding IndexNavigation.Price, StringFormat={}Цена: {0:n}}" Grid.Row="2" Grid.Column="1" TextAlignment="Left" />
                         
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Grid.Row="2">
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button VerticalAlignment="Top" Margin="20" Height="30" Width="160" x:Name="btnAdd" Click="btnAdd_Click" Content="Добавить запись" />
+            <Button VerticalAlignment="Top" Margin="20" Height="30" Width="160" x:Name="btnEdit" Click="btnExit_Click" Content="Редактировать запись" />
+            <Button VerticalAlignment="Top" Margin="20" Height="30" Width="160" x:Name="btnView" Click="btnView_Click" Content="Посмотреть запись" />
+            <Button VerticalAlignment="Top" Margin="20" Height="30" Width="160" x:Name="btnDelete" Click="btnDelete_Click" Content="Удалить запись" />
+            
             <Button Click="btnUserRepost_Click" Content="Сменить пользователя"  VerticalAlignment="Top" Margin="20" Height="30" Width="160" x:Name="btnUserRepost" />
         </StackPanel>
-        
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            
+            <Button VerticalAlignment="Top" Margin="20" Height="30" Width="160" x:Name="btnClean" Click="btnClean_Click" Content="Очистить" />
+        </StackPanel>
     </Grid>
 </Window>

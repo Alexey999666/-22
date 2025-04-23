@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Практос_22"
         mc:Ignorable="d"
-        Title="Добавление" Height="1000" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" x:Name="TheFormBlank">
+        Title="Добавление" Height="900" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" x:Name="TheFormBlank">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="250*"/>
+            <RowDefinition Height="300*"/>
+            <RowDefinition Height="70*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <TextBlock Margin="5,5,5,0"   FontSize="10" Opacity="1" FontWeight="Black" FontStretch="Condensed" Text="Издание" TextWrapping="Wrap"   />
@@ -25,13 +25,32 @@
             <TextBlock Margin="5,5,5,0"  FontSize="10" Opacity="1" FontWeight="Black" FontStretch="Condensed" Text="Дата подписки" TextWrapping="Wrap"   />
             <DatePicker Margin="5,5,5,0" x:Name="dpDate" SelectedDate="{Binding Path=SubscriptionDate}" VerticalAlignment="Center" />
 
-            <TextBlock Margin="5,5,5,0"     FontSize="10" Opacity="1" FontWeight="Black" FontStretch="Condensed" Text="" TextWrapping="Wrap"   />
-            <TextBox Margin="5,0,5,5" TextWrapping="Wrap" x:Name="tbMonth" Text="{Binding Path=IndexNavigation.Price}" />
+            <TextBlock Margin="5,5,5,0"     FontSize="10" Opacity="1" FontWeight="Black" FontStretch="Condensed" Text="Количество месяцев" TextWrapping="Wrap"   />
+            <TextBox Margin="5,0,5,5" TextWrapping="Wrap" x:Name="tbMonth" Text="{Binding Path=NumberMonths}" />
 
-            <TextBlock Margin="5,5,5,0"     FontSize="10" Opacity="1" FontWeight="Black" FontStretch="Condensed" Text="Стоимость услуги" TextWrapping="Wrap"   />
+            <TextBlock Margin="5,5,5,0"     FontSize="10" Opacity="1" FontWeight="Black" FontStretch="Condensed" Text="Цена" TextWrapping="Wrap"   />
             <TextBox Margin="5,0,5,5" TextWrapping="Wrap" x:Name="tbPrice" Text="{Binding Path=IndexNavigation.Price}" />
-            
-            
+
+            <TextBlock Margin="5,5,5,0"     FontSize="10" Opacity="1" FontWeight="Black" FontStretch="Condensed" Text="Скидка" TextWrapping="Wrap"   />
+            <TextBox Margin="5,0,5,5" TextWrapping="Wrap" x:Name="tbDiscount" Text="{Binding Path=Discount}" />
+
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="5,5,5,5">
+            <Label Content="Фото журнала:" HorizontalAlignment="Center"/>
+            <Image x:Name="imgPhoto" Source ="{Binding PhotoFull}" Width="239" Height="330" Stretch="Uniform" />
+            <Button x:Name="btnPhoto" Content="Добавить фото" Width="120" HorizontalAlignment="Center" Margin="0,30,0,0" Click="btnAddPhoto_Click"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2"  >
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="140,0,120,0">
+                <Button Content="Добавить" Width="100" Height="30"  x:Name="btnFormAdd"  Click="btnFormAdd_Click" />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Width="100" Height="30" Content="Отмена"  Click="btnCancel_Click" />
+            </StackPanel>
+
+
         </StackPanel>
     </Grid>
 </Window>
