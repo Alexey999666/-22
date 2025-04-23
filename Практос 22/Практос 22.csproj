@@ -10,7 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="image\Cosmo.jpg" />
+    <None Remove="image\I love you.jpg" />
+    <None Remove="image\Maxim.jpg" />
+    <None Remove="image\Yoi.jpg" />
+    <None Remove="image\Из рук в руки.jpg" />
+    <None Remove="image\Лиза.jpg" />
+    <None Remove="image\Мир новостей.jpg" />
+    <None Remove="image\Панорама.jpg" />
     <None Remove="image\Пустой.jpg" />
+    <None Remove="image\Ярмарка.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +32,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="image\Cosmo.jpg" />
+    <Resource Include="image\I love you.jpg" />
+    <Resource Include="image\Maxim.jpg" />
+    <Resource Include="image\Yoi.jpg" />
+    <Resource Include="image\Из рук в руки.jpg" />
+    <Resource Include="image\Лиза.jpg" />
+    <Resource Include="image\Мир новостей.jpg" />
+    <Resource Include="image\Панорама.jpg" />
     <Resource Include="image\Пустой.jpg" />
+    <Resource Include="image\Ярмарка.jpg" />
   </ItemGroup>
 
 </Project>

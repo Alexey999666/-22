@@ -102,9 +102,9 @@ namespace Практос_22
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnUserRepost_Click(object sender, RoutedEventArgs e)
         {
-            Main.Title = "MainWindow";
+            Main.Title = "Подписки на издания";
             Main.Visibility = Visibility.Collapsed;
             Window_Initialized(sender, e);
 

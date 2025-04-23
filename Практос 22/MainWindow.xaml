@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Практос_22"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000" Loaded="Main_Loaded" WindowStartupLocation="CenterScreen" Initialized="Window_Initialized" x:Name="Main">
+        Title="Подписки на издания" Height="600" Width="1000" Loaded="Main_Loaded" WindowStartupLocation="CenterScreen" Initialized="Window_Initialized" x:Name="Main">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="27*"/>
             <RowDefinition Height="366*"/>
             <RowDefinition Height="41*"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="listView" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        
+        <ListView x:Name="listView" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Visible">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
@@ -36,13 +37,21 @@
                                 </Binding>
                             </Image.Source>
                         </Image>
+                        <TextBlock Text="{Binding IndexNavigation.PageCount, StringFormat={} Количество страниц: {0:n}}" Grid.Row="0" Grid.Column="3" TextAlignment="Left"/>
+                        <TextBlock Text="{Binding IndexNavigation.TitleEdition }" Grid.Row="0" Grid.Column="1" TextAlignment="Left"/>
+                        <TextBlock Text="{Binding CodeNavigation.TitleOrganization}" Grid.Row="0" Grid.Column="2" TextAlignment="Left" />
+                        <TextBlock Text="{Binding SubscriptionDate, StringFormat={}Дата подписки: {0:d}}" Grid.Row="1" Grid.Column="1" TextAlignment="Left" />
+                        <TextBlock Text="{Binding NumberMonths, StringFormat={} Количество месяцев: {0:d}}" Grid.Row="1" Grid.Column="2" TextAlignment="Left" />
+                        <TextBlock Text="{Binding Discount, StringFormat={}Скидка: {0:n}}" Grid.Row="2" Grid.Column="2" TextAlignment="Left" />
+                        <TextBlock Text="{Binding IndexNavigation.Price, StringFormat={}Цена: {0:n}}" Grid.Row="2" Grid.Column="1" TextAlignment="Left" />
                         
-                        <TextBlock Text="{Binding SubscriptionDate, StringFormat={}Дата подписки:{0:d}}" Grid.Row="1" Grid.Column="1" TextAlignment="Left" />
-                        <TextBlock Text="{Binding NumberMonths, StringFormat={}Количество месяцев:{0:d}}" Grid.Row="1" Grid.Column="2" TextAlignment="Left" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <!--<Button Click="Button_Click" />-->
+        <StackPanel Grid.Row="2">
+            <Button Click="btnUserRepost_Click" Content="Сменить пользователя"  VerticalAlignment="Top" Margin="20" Height="30" Width="160" x:Name="btnUserRepost" />
+        </StackPanel>
+        
     </Grid>
 </Window>

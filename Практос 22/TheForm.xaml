@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Практос_22"
         mc:Ignorable="d"
-        Title="TheForm" Height="450" Width="800">
+        Title="Добавление" Height="1000" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded" x:Name="TheFormBlank">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock Margin="5,5,5,0"   FontSize="10" Opacity="1" FontWeight="Black" FontStretch="Condensed" Text="Издание" TextWrapping="Wrap"   />
+            <ComboBox  Margin="5,0,5,5"  x:Name="cbEdition" VerticalAlignment="Center" SelectedItem="{Binding Path=IndexNavigation}" />
+
+            <TextBlock Margin="5,5,5,0"   FontSize="10" Opacity="1" FontWeight="Black" FontStretch="Condensed" Text="Организация" TextWrapping="Wrap"   />
+            <ComboBox  Margin="5,0,5,5"  x:Name="cbOrganization" VerticalAlignment="Center" SelectedItem="{Binding Path=CodeNavigation}" />
+
+            <TextBlock Margin="5,5,5,0"     FontSize="10" Opacity="1" FontWeight="Black" FontStretch="Condensed" Text="Количество страниц" TextWrapping="Wrap"   />
+            <TextBox Margin="5,0,5,5" TextWrapping="Wrap" x:Name="tbPages" Text="{Binding Path=IndexNavigation.PageCount}" />
+
+            <TextBlock Margin="5,5,5,0"  FontSize="10" Opacity="1" FontWeight="Black" FontStretch="Condensed" Text="Дата подписки" TextWrapping="Wrap"   />
+            <DatePicker Margin="5,5,5,0" x:Name="dpDate" SelectedDate="{Binding Path=SubscriptionDate}" VerticalAlignment="Center" />
+
+            <TextBlock Margin="5,5,5,0"     FontSize="10" Opacity="1" FontWeight="Black" FontStretch="Condensed" Text="" TextWrapping="Wrap"   />
+            <TextBox Margin="5,0,5,5" TextWrapping="Wrap" x:Name="tbMonth" Text="{Binding Path=IndexNavigation.Price}" />
+
+            <TextBlock Margin="5,5,5,0"     FontSize="10" Opacity="1" FontWeight="Black" FontStretch="Condensed" Text="Стоимость услуги" TextWrapping="Wrap"   />
+            <TextBox Margin="5,0,5,5" TextWrapping="Wrap" x:Name="tbPrice" Text="{Binding Path=IndexNavigation.Price}" />
+            
+            
+        </StackPanel>
     </Grid>
 </Window>
