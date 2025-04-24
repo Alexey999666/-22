@@ -43,7 +43,7 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2"  >
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="140,0,120,0">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="140,0,100,0">
                 <Button Content="Добавить" Width="100" Height="30"  x:Name="btnFormAdd"  Click="btnFormAdd_Click" />
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">

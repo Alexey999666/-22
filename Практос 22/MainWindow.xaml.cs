@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -140,7 +141,8 @@ namespace Практос_22
 
         private void btnClean_Click(object sender, RoutedEventArgs e)
         {
-
+            tbFind.Clear();
+            tbFind.Clear();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -179,6 +181,37 @@ namespace Практос_22
 
             }
             else listView.Focus();
+        }
+
+        private void tbFind_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            List<Subscription> listItem = (List<Subscription>)listView.ItemsSource;
+            var filtered = listItem.Where(p => p.IndexNavigation.TitleEdition.Contains(tbFind.Text));
+            if (filtered.Count() > 0)
+            {
+                var item = filtered.First();
+                listView.SelectedItem = item;
+                listView.ScrollIntoView(item);
+            }
+        }
+
+        private void tbFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (tbFilter.Text.IsNullOrEmpty() == false)
+            {
+                using (EditionsCityContext _db = new EditionsCityContext())
+                {
+                    _db.Editions.Load();
+                    _db.Organizations.Load();
+                    var filtered = _db.Subscriptions.Where(p => p.CodeNavigation.TitleOrganization.Contains(tbFilter.Text));
+
+                    listView.ItemsSource = filtered.ToList();
+                }
+            }
+            else
+            {
+                LoadDBInListView();
+            }
         }
     }
 }

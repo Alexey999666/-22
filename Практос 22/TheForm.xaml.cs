@@ -108,7 +108,11 @@ namespace Практос_22
             {
                 if (open.SafeFileName.Length != 0)
                 {
+
+                    _edition = _subscription.IndexNavigation;
+                    _db.Entry(_edition).State = EntityState.Modified;
                     string newNamePhoto = Directory.GetCurrentDirectory + "\\image\\" + open.SafeFileName;
+                    if (!File.Exists(newNamePhoto)) 
                     File.Copy(open.FileName, newNamePhoto, true);
                     _edition.Photo = open.SafeFileName;
                 }

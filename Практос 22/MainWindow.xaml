@@ -59,7 +59,17 @@
             <Button Click="btnUserRepost_Click" Content="Сменить пользователя"  VerticalAlignment="Top" Margin="20" Height="30" Width="160" x:Name="btnUserRepost" />
         </StackPanel>
         <StackPanel Grid.Row="3" Orientation="Horizontal">
-            
+            <StackPanel Margin="15">
+                <Label Content="Поиск по изданию" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="-2.014,-0.222"/>
+                <TextBox x:Name="tbFind" TextChanged="tbFind_TextChanged" HorizontalAlignment="Left"  Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+            </StackPanel>
+
+            <StackPanel Margin="15" >
+                <Label Content="Фильтр по организации"  Grid.Row="2" VerticalAlignment="Top" />
+                <TextBox x:Name="tbFilter" TextChanged="tbFilter_TextChanged" HorizontalAlignment="Left"  Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+            </StackPanel>
             <Button VerticalAlignment="Top" Margin="20" Height="30" Width="160" x:Name="btnClean" Click="btnClean_Click" Content="Очистить" />
         </StackPanel>
     </Grid>
